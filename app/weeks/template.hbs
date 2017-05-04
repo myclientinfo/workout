@@ -1,0 +1,15 @@
+<h3>Weeks</h3>
+
+<ul class="weeks">
+{{#each model as |week|}}
+    <li>
+    {{#if week.isComplete}}
+        {{fa-icon "check-square-o" classNames="icon-check"}}
+    {{else}}
+        {{fa-icon "square-o" classNames="icon-check"}}
+    {{/if}}
+    {{#link-to 'week' week.id}}Week {{week.id}}{{/link-to}}
+    {{fa-icon "angle-right"}}
+    </li>
+{{/each}}
+</ul>

@@ -1,0 +1,14 @@
+<div id="container">
+
+<ul class="menu">
+    <li>{{#link-to 'index'}}{{fa-icon "home"}}{{/link-to}}</li>
+    <li>{{#link-to 'exercises'}}Exercises{{/link-to}}</li>
+    <li>{{#link-to 'weeks'}}Weeks{{/link-to}}</li>
+    <li class="settings">{{#link-to 'settings'}}{{fa-icon "cog"}}{{/link-to}}</li>
+</ul>
+
+<div class="page-content">
+    {{liquid-outlet 'main'}}
+</div>
+
+</div>

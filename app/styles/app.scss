@@ -1,0 +1,304 @@
+$container-width: 750px;
+$container-height: 1134px;
+$feature-colour: #FFFFFF;
+$menu-colour: #50597b;
+$offtext-colour: #848dac;
+$background: #1f253d;
+$container-colour: #394264;
+$header-colour: #e64c65;
+$font-size: 14pt;
+
+* {
+  box-sizing:border-box;
+}
+
+body {
+  font-family: "fira-sans-n1","fira-sans",sans-serif;
+  font-weight: 100;
+  color: $feature-colour;
+  margin: 0;
+  background-color: $background;
+  font-size: $font-size;
+
+}
+
+a {
+  text-decoration: none;
+  color: $feature-colour;
+}
+
+h1, h2, h3, h4 {
+
+  font-weight: 100;
+  text-transform: uppercase;
+  padding: 10pt;
+  margin: 0;
+  background-color: $header-colour;
+
+  a {
+    margin-right: 10pt;
+  }
+}
+
+#container {
+  background-color: $container-colour;
+}
+
+.menu {
+  background-color: $menu-colour;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-weight: 100;
+  font-size: 110%;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  height: 40pt;
+  overflow:hidden;
+
+  li {
+    display: inline-block;
+    color: white;
+
+    border: 0 solid $background;
+    border-right-width: 1pt;
+    float: left;
+    border-right-width: 0;
+    height: 38pt;
+
+    &.settings {
+      float: right;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      padding: 10pt;
+      display: inline-block;
+      background-color: $menu-colour;
+      -moz-box-sizing:    border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing:         border-box;
+
+      &.active {
+        border: 0 solid $header-colour;
+        border-top-width: 5pt;
+        padding-top: 5pt;
+      }
+
+    }
+  }
+}
+
+.weeks, .days, .workouts, .exercises {
+
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+
+    border: 0px solid $background;
+    border-width: 1px 0 0 0;
+    border-top-color: $background;
+    margin: 0;
+    position: relative;
+
+    .sets {
+      font-size: 10pt;
+    }
+
+    .workoutSets {
+      font-size: 10pt;
+    }
+
+    a{
+      display:block;
+      padding: 10pt 30pt;
+    }
+
+    .button {
+      margin-left: 6pt;
+      font-size: 110%;
+      background-color: lighten($header-colour, 10%);
+      border: 0px solid black;
+      border-radius: 1pt;
+      color: white;
+      padding: 10pt;
+
+    }
+
+    .button-save {
+      background-color: lighten($menu-colour, 30%);
+    }
+
+    .boxes {
+      display: inline-block;
+      position: absolute;
+      right: 10pt;
+      top: 10pt;
+    }
+
+    i.icon-check {
+      position: absolute;
+      left: 10pt;
+      top: 12pt;
+    }
+
+    i.fa-angle-down, i.fa-angle-right {
+      position: absolute;
+      right: 10pt;
+      top: 12pt;
+    }
+
+    .show-exercise {
+      font-size: 30pt;
+      position: absolute;
+      bottom: 5pt;
+      left: 10pt;
+    }
+
+  }
+}
+
+.weeks li, .days li  {
+
+
+}
+
+
+
+
+.sets {
+
+  list-style-type: none;
+  margin: 0;
+  padding:0;
+  float: left;
+  width: 100%;
+
+  li {
+
+    display: inline-block;
+    width: 39pt;
+    margin: 0;
+    padding: 5pt;
+    border-width: 0px;
+    font-size: 12pt;
+
+    .step-label {
+      margin-bottom: 3pt;
+      text-align:center;
+      width: 35pt;
+    }
+
+    &.labels div {
+      height: 40pt;
+      position: relative;
+      top: -20pt;
+
+    }
+
+    input {
+      width: 35pt;
+      border: 0;
+      border-radius: 2pt;
+      font-size: 22pt;
+      margin-bottom: 7pt;
+      font-family: "fira-sans-n1","fira-sans",sans-serif;
+      padding:3pt;
+      padding-left: 6pt;
+    }
+
+  }
+}
+
+.buttons {
+  float: right;
+  margin-top: 5pt;
+
+  .button {
+    margin-bottom: 3pt;
+    font-size: 20pt;
+    border-radius: 2pt;
+  }
+
+}
+
+.page-content {
+  padding-top: 40pt;
+}
+
+.workout-name {
+  cursor: pointer;
+}
+
+button.button-deletes, button.button-confirm-deletes, button.button-cancel-deletes {
+  font-size: 16pt;
+  color: white;
+  background-color: red;
+  width: 100%;
+  float: left;
+  box-sizing: border-box;
+  padding: 10pt;
+  border: 0px;
+  font-family: "fira-sans-n1","fira-sans",sans-serif;
+}
+
+button.button-confirm-deletes{
+  width: 80%;
+}
+
+button.button-cancel-deletes{
+  background-color: #366097;
+  width: 20%;
+  float: right;
+}
+
+.showSets, .showReps {
+  display: inline-block;
+  width: 100px;
+  padding-top: 5pt;
+}
+
+
+div.content {
+  padding: 10pt;
+
+  h5 {
+    .feature {
+      color: $header-colour;
+    }
+  }
+
+  p {
+    font-size: 80%;
+    color: $feature-colour;
+  }
+
+}
+
+
+ul.exercises-select {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: $menu-colour;
+
+
+
+  li {
+    width: 24%;
+    display: inline-block;
+    margin: 0;
+    padding: 10pt;
+    cursor: pointer;
+    &.active {
+      color: $header-colour;
+    }
+  }
+
+}
+
+

@@ -1,0 +1,15 @@
+
+<ul class="exercises-select">
+    <li {{action 'applyFilter' 'Chest'}} class="{{if isChest "active"}}">Chest</li>
+    <li {{action 'applyFilter' 'Arms'}} class="{{if isArms "active"}}">Arms</li>
+    <li {{action 'applyFilter' 'Back'}} class="{{if isBack "active"}}">Back</li>
+    <li {{action 'applyFilter' 'Legs'}} class="{{if isLegs "active"}}">Legs</li>
+</ul>
+
+<ul class="exercises">
+  {{#each postFilteredExercises as |exercise|}}
+    <li>{{#link-to 'exercise' exercise}}{{exercise.name}}{{/link-to}}<div class="boxes">{{exercise.target}}</div></li>
+    {{else}}
+    <li>Select a type to show exercises</li>
+  {{/each}}
+</ul>

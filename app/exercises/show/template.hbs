@@ -1,0 +1,25 @@
+<h3>{{#link-to 'exercises'}}{{fa-icon "caret-square-o-left"}}{{/link-to}} {{model.name}}</h3>
+
+<div class="content">
+
+ <h5>This exercise targets the <span class="feature">{{model.target}}</span></h5>
+
+<p>How to do the exercise safely and effectively</p>
+
+{{ember-youtube ytid=model.video
+
+    delegate=controller
+    delegate-as="myPlayer"
+
+    autoplay=false
+    showControls=false
+    showTime=false
+    showProgress=false
+    showDebug=false
+
+    playing="ytPlaying"
+    paused="ytPaused"
+    ended="ytEnded"
+    buffering="ytBuffering"}}
+
+</div>

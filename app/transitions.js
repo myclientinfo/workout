@@ -8,7 +8,7 @@ export default function(){
 
   this.transition(
     this.fromRoute('exercises'),
-    this.toRoute('weeks'),
+    this.toRoute('workout'),
     this.use('toLeft'),
     this.reverse('toRight')
   );
@@ -20,8 +20,15 @@ export default function(){
   );
 
   this.transition(
-    this.fromRoute('weeks'),
-    this.toRoute('week'),
+    this.fromRoute('workout'),
+    this.toRoute('workout.week'),
+    this.use('toLeft'),
+    this.reverse('toRight')
+  );
+
+  this.transition(
+    this.fromRoute('workout.week'),
+    this.toRoute('workout.week.day'),
     this.use('toLeft'),
     this.reverse('toRight')
   );

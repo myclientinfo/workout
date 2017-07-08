@@ -1,17 +1,11 @@
 import Ember from 'ember';
-import exercises from 'workout/data/exercises';
 
 export default Ember.Route.extend({
   model: function(params){
-    return exercises.findBy('id', +params.id);
-  },
-  actions: {
-    gotBack(){
-      history.back();
-    }
+    return this.get('store').find('day', params.day_id);
   },
   renderTemplate(controller, model){
-    this.render('exercises.show', {
+    this.render('workout.week.day', {
       into: 'application',
       outlet: 'main'
     });

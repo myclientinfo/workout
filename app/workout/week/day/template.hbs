@@ -1,0 +1,7 @@
+<h3 data-week={{model.id}}>{{#link-to 'workout.week' model.week}}{{fa-icon "chevron-circle-left"}}{{/link-to}}Week {{model.week.id}} - Day {{model.id}}</h3>
+
+<ul class="workouts">
+{{#each model.workouts as |workout|}}
+    {{workout-row workout=workout day=model.id saveAction=(action 'saveWorkout')}}
+{{/each}}
+</ul>

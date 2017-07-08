@@ -1,1 +1,16 @@
-{{outlet}}
+<h3>Workout Weeks</h3>
+
+<ul class="weeks">
+{{#each model as |week|}}
+    <li>
+      {{fa-icon 
+        (if week.isComplete "check-square-o" "square-o")
+        class="icon-check"
+        fixedWidth=true
+      }}
+    
+    {{#link-to 'workout.week' week}}Week {{week.id}}{{/link-to}}
+    {{fa-icon "angle-right"}}
+    </li>
+{{/each}}
+</ul>

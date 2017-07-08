@@ -1,0 +1,42 @@
+<div class="workout-name"{{action 'toggleEditing' isEditing}}>
+  {{fa-icon 
+    (if workout.isComplete "check-square-o" "square-o")
+    class="icon-check"
+  }}
+  <a>
+    {{workout.exercise.name}}
+    <span class="workoutReps">{{workout.sets}}</span>
+    <span class="workoutSets">x{{workout.reps}}</span>
+    {{#unless isEditing}}{{fa-icon "angle-down"}}{{/unless}}
+  </a>
+</div>
+
+{{#liquid-if isEditing}}
+<div>
+  <ul class="sets">
+    <li class="labels">
+      <div>Reps</div>
+      {{#if workout.exercise.showWeight}}
+        <div>Weight</div>
+      {{/if}}
+    </li>
+    {{#each workout.setRecords as |set|}}
+    <li data-set-number="{{set.set}}">
+      <div class="step-label">Set {{set.set}}</div>
+      {{input class="rep-count" value=set.reps type="numeric" pattern="[0-9]*"}}
+      {{#if workout.exercise.showWeight}}
+        {{input value=set.weight class="rep-weight" type="numeric" pattern="[0-9]*"}}
+      {{/if}}
+    </li>
+    {{/each}}
+  </ul>
+
+  {{#link-to 'exercises.show' workout.exercise}}
+    {{fa-icon "info-circle" class="show-exercise"}}
+  {{/link-to}}
+  <div class="buttons">
+    <button{{action (mut isEditing) false}} class="button button-cancel">{{fa-icon "times"}}</button>
+    <button{{action "saveWorkout" workout}} class="button button-save">Continue {{fa-icon "cloud"}}</button>
+  </div>
+</div>
+{{/liquid-if}}

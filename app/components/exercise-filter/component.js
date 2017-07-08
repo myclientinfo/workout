@@ -4,8 +4,8 @@ export default Ember.Component.extend({
   filteredExercises: null,
   postFilteredExercises: null,
   isChest: function(){
-        return this.filtersApplied.indexOf('Chest') > -1;
-      }.property('filtersApplied.@each'),
+    return this.filtersApplied.indexOf('Chest') > -1;
+  }.property('filtersApplied.@each'),
   isArms: function(){
     return this.filtersApplied.indexOf('Arms') > -1;
   }.property('filtersApplied.@each'),

@@ -1,0 +1,15 @@
+<h3 data-week={{model.id}}>{{#link-to 'workout'}}{{fa-icon "chevron-circle-left"}}{{/link-to}}Week {{model.id}}</h3>
+
+<ul class="days">
+{{#each model.days as |day|}}
+    <li>
+    {{fa-icon 
+      (if day.isComplete "check-square-o" "square-o")
+      class="icon-check"
+      fixedWidth=true
+    }}
+    {{#link-to 'workout.week.day' model.id day.id}}{{day.type}}{{/link-to}}
+    {{fa-icon "angle-right"}}
+    </li>
+{{/each}}
+</ul>

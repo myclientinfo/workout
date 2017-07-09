@@ -2,7 +2,7 @@ import Ember from 'ember';
 import exercises from 'workout/data/exercises';
 
 export default Ember.Route.extend({
-  model: function(params){
+  model(params){
     return exercises.findBy('id', +params.id);
   },
   actions: {
@@ -10,7 +10,7 @@ export default Ember.Route.extend({
       history.back();
     }
   },
-  renderTemplate(controller, model){
+  renderTemplate(){
     this.render('exercises.show', {
       into: 'application',
       outlet: 'main'

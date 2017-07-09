@@ -5,9 +5,9 @@ import exercises from 'workout/data/exercises';
 
 export function initialize(appInstance) {
   let store = appInstance.lookup('service:store');
-  let storeWeek, storeDay, storeWorkout, storeSets, storeExercise;
-  let setFilter;
-
+  let storeWeek, storeDay, storeWorkout, storeSet;
+  let rawSet;
+  
   exercises.map(exercise => {
     store.createRecord('exercise', exercise);
   })
@@ -27,15 +27,20 @@ export function initialize(appInstance) {
         // "group" abstraction discarded here
         workouts.filter(workout=> workout.group === day.group)
           .map(workout => {
+            storeWorkout = store.createRecord('workout', workout);
+            storeWorkout.set('exercise', store.peekRecord('exercise', workout.exercise_id));
             
-            storeWorkout = store.peekRecord('workout', workout.id);
-            
-            if(!storeWorkout){
-              storeWorkout = store.createRecord('workout', workout);
-              store.findRecord('exercise', workout.exercise_id).then(exercise => {
-                storeWorkout.set('exercise', exercise);
-              });
+            for (var i = 1; i <= storeWorkout.get('sets'); i++) {
+              rawSet = {
+                set: i,
+                workout: storeWorkout,
+                reps: workout.reps
+              };
+              
+              storeSet = store.createRecord('set', rawSet);
+              storeWorkout.get('userSets').pushObject(storeSet);
             }
+
             storeDay.get('workouts').pushObject(storeWorkout);
           });
       });

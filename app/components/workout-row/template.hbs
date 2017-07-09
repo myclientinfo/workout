@@ -20,7 +20,7 @@
         <div>Weight</div>
       {{/if}}
     </li>
-    {{#each workout.setRecords as |set|}}
+    {{#each workout.userSets as |set|}}
     <li data-set-number="{{set.set}}">
       <div class="step-label">Set {{set.set}}</div>
       {{input class="rep-count" value=set.reps type="numeric" pattern="[0-9]*"}}
@@ -31,7 +31,7 @@
     {{/each}}
   </ul>
 
-  {{#link-to 'exercises.show' workout.exercise}}
+  {{#link-to 'exercises.show' workout.id}}
     {{fa-icon "info-circle" class="show-exercise"}}
   {{/link-to}}
   <div class="buttons">
